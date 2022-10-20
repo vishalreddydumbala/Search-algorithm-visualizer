@@ -4,7 +4,8 @@ This is a search algorithum visulaizer GUI which was built using Tkinter.I used 
 This Code has linearsearch and binary search.If the data is not sorted then it uses bubble sort to sort the data so that data can be used to find the value using binary search.
 To give error messages I used popup function in PYTHON_PROJECT.PY
 
-[**Linear search _UI_ before clicking start**]
+**Linear search _UI_ before clicking start**
 <img width="795" alt="Screenshot 2022-10-20 at 3 06 45 PM" src="https://user-images.githubusercontent.com/96576837/196913857-431d1a88-83cf-4e98-a473-5a5d17524baa.png">
 
-[**If the __element found__**]<img width="798" alt="Screenshot 2022-10-20 at 3 07 40 PM" src="https://user-images.githubusercontent.com/96576837/196916076-6d558d41-0527-4515-9a69-a751b33065da.png">
+**If the __element found__**
+<img width="798" alt="Screenshot 2022-10-20 at 3 07 40 PM" src="https://user-images.githubusercontent.com/96576837/196916076-6d558d41-0527-4515-9a69-a751b33065da.png">
