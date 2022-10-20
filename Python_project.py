@@ -94,7 +94,7 @@ def generate():
 
 
 # Window Properties
-root.title("Search Algorithum Visulation")
+root.title("Search Algorithm Visulation")
 root.config(bg="black")
 root.maxsize(800, 600)
 
