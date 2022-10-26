@@ -16,9 +16,11 @@ colorarr = []
 # functions
 def popup(str1,querry):
     if(querry=="error"):
-        response = messagebox.showerror("This is messagebox", str1)
+        response = messagebox.showerror("Error", str1)
+    elif(querry=="msg"):
+        response = messagebox.showerror("Info",str1)
     else:
-        response = messagebox.askquestion("This is messagebo", str1)
+        response = messagebox.askquestion("Message", str1)
         return response
 
 def start():
@@ -38,6 +40,7 @@ def start():
         popup("No number found","error")
 
 def drawData(data,colorArray):  # for bar graph
+    Ui_Canvas.delete("all")
     global colorarr 
     colorarr = colorArray
     canv_height = 380
@@ -97,6 +100,7 @@ def generate():
 root.title("Search Algorithm Visulation")
 root.config(bg="black")
 root.maxsize(800, 600)
+root.minsize(800, 600)
 
 # User Frame
 Ui_Frame = Frame(root, width=780, height=200, bg="gray")

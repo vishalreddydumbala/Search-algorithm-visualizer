@@ -25,10 +25,11 @@ def linearSearch(data,value,drawData,timeTick):
 def binarySearch(data,value,drawData,timeTick,popup):
     response=popup("Data is not sorted \nDo you want to sort it?","?")
     if(response == "yes"):
-        sort_the_data(data,drawData,popup)
-        # check if sort function is completed
-        # search the value in the sorted data
+        sort_the_data(data,drawData,timeTick)
+        popup('Data is sorted','msg',)
+        #complete binary search function
         pass
     else:
         popup("binary search can't be done without sorting","error")
+        drawData(data, ['orange' for x in range(len(data))])
         
