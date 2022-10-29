@@ -25,20 +25,24 @@ def linearSearch(data,value,drawData,timeTick):
 def binarySearch(data,value,drawData,timeTick,popup):
     response=popup("Data is not sorted \nDo you want to sort it?","?")
     if(response == "yes"):
-        sort_the_data(data,drawData,timeTick)
+        data=sort_the_data(data,drawData)
         popup('Data is sorted','msg',)
-        start = 0
-        end=len(data)-1
-        while(start<end):
-            mid=int((start+end)/2)
-            drawData(data,['gray' if ((x==start) or (x==end)) else 'orange' for x in range(len(data))])
-            if(data[mid]>value):
-                start=mid
-            elif(data[mid]<value):
-                end=mid
-            else:
-                drawData(data,['green' if x==mid else 'red' for x in range(len(data))])
+        l = 0
+        r=len(data)-1
+        while (l <= r):
+            m = int(l + (r - l) / 2)
+            drawData(data, ['gray' if x==m else 'orange' for x in range(len(data))])
+            time.sleep(timeTick)
+            if (data[m] == value):
+                drawData(data, ['green' if x==m else 'red' for x in range(len(data))])
+                time.sleep(timeTick)
+                return
+            if (data[m] < value):
+                l = m + 1
+            elif(data[m] > value):
+                r = m - 1
+        drawData(data, ['red' for x in range(len(data))])
+        time.sleep(timeTick)
     else:
         popup("binary search can't be done without sorting","error")
-        drawData(data, ['orange' for x in range(len(data))])
         
