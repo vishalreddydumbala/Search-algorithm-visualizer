@@ -27,8 +27,17 @@ def binarySearch(data,value,drawData,timeTick,popup):
     if(response == "yes"):
         sort_the_data(data,drawData,timeTick)
         popup('Data is sorted','msg',)
-        #complete binary search function
-        pass
+        start = 0
+        end=len(data)-1
+        while(start<end):
+            mid=int((start+end)/2)
+            drawData(data,['gray' if ((x==start) or (x==end)) else 'orange' for x in range(len(data))])
+            if(data[mid]>value):
+                start=mid
+            elif(data[mid]<value):
+                end=mid
+            else:
+                drawData(data,['green' if x==mid else 'red' for x in range(len(data))])
     else:
         popup("binary search can't be done without sorting","error")
         drawData(data, ['orange' for x in range(len(data))])

@@ -10,7 +10,6 @@ root = Tk()
 # Variables
 selected_algo = StringVar()
 data = []
-value = -1
 colorarr = []
 
 # functions
@@ -25,19 +24,21 @@ def popup(str1,querry):
 
 def start():
     global data
-    global value
     global colorarr
-    if(selected_algo.get()=="Linear Search"):
-        linearSearch(data,value,drawData,speedscroll.get())
-    elif(selected_algo.get()=="Binary Search"):
-        binarySearch(data,value,drawData,speedscroll.get(),popup)
-
-    j=-1
-    for x in colorarr:
-        if x == 'green':
-            j=1
-    if(j<0):
-        popup("No number found","error")
+    try:
+        value = int(ValEntry.get())
+        if(selected_algo.get()=="Linear Search"):
+            linearSearch(data,value,drawData,speedscroll.get())
+        elif(selected_algo.get()=="Binary Search"):
+            binarySearch(data,value,drawData,speedscroll.get(),popup)
+        j=-1
+        for x in colorarr:
+            if x == 'green':
+                j=1
+        if(j<0):
+            popup("No number found","error")        
+    except:
+        popup("Enter the value","error")
 
 def drawData(data,colorArray):  # for bar graph
     Ui_Canvas.delete("all")
@@ -64,8 +65,6 @@ def drawData(data,colorArray):  # for bar graph
 
 def generate():
     global data
-    global value
-
     Ui_Canvas.delete("all")
     # print("Search Algorithum:" + selected_algo.get())
     try:
@@ -80,15 +79,10 @@ def generate():
         sizeVal = int(SizeEntry.get())
     except:
         sizeVal = 10
-    try:
-        value = int(ValEntry.get())
-        data = []
-        for _ in range(sizeVal):
-            data.append(random.randrange(minVal, maxVal + 1))
-        drawData(data,['orange' for x in range(len(data))])
-    except:
-        value = -1
-        popup("Enter the value","error")
+    data = []
+    for _ in range(sizeVal):
+        data.append(random.randrange(minVal, maxVal + 1))
+    drawData(data,['orange' for x in range(len(data))])
 
     # data = []
     # for _ in range(sizeVal):
